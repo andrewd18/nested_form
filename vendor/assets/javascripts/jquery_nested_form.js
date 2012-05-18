@@ -44,8 +44,8 @@ jQuery(function($) {
 
       var field = this.insertFields(content, assoc, link);
       $(link).closest("form")
-        .trigger({ 'nested:fieldAdded', field: field })
-        .trigger({ 'nested:fieldAdded:' + assoc, field: field });
+        .trigger({ type: 'nested:fieldAdded', field: field })
+        .trigger({ type: 'nested:fieldAdded:' + assoc, field: field });
       return false;
     },
     insertFields: function(content, assoc, link) {
@@ -61,7 +61,7 @@ jQuery(function($) {
       // }
       var field = $(link).closest('.fields');
       field.hide();
-      $(link).closest("form").trigger({ 'nested:fieldRemoved', field: field });
+      $(link).closest("form").trigger({ type: 'nested:fieldRemoved', field: field });
       return false;
     }
   };
